@@ -1,0 +1,36 @@
+{
+  "video_id": "example_short",
+  "description": "Short example transcript with simple factual claims",
+  "transcript": [
+    {
+      "text": "Hello everyone, welcome to today's briefing.",
+      "start": 0.0,
+      "duration": 3.0
+    },
+    {
+      "text": "The unemployment rate has dropped to 3.7%.",
+      "start": 3.0,
+      "duration": 3.5
+    },
+    {
+      "text": "This represents a significant improvement in the job market.",
+      "start": 6.5,
+      "duration": 3.0
+    },
+    {
+      "text": "The Earth orbits around the Sun once every 365 days.",
+      "start": 9.5,
+      "duration": 4.0
+    },
+    {
+      "text": "Water boils at 100 degrees Celsius at sea level.",
+      "start": 13.5,
+      "duration": 3.5
+    },
+    {
+      "text": "Thank you for your attention.",
+      "start": 17.0,
+      "duration": 2.0
+    }
+  ]
+}

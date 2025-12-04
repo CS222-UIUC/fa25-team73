@@ -1,0 +1,506 @@
+{
+  "video_id": "trump_biden_debate",
+  "description": "Converted from trump_biden_debate.json",
+  "transcript": [
+    {
+      "text": "we're live from Georgia a key",
+      "start": 1.4,
+      "duration": 3.879
+    },
+    {
+      "text": "Battleground state in the race for the",
+      "start": 3.399,
+      "duration": 4.121
+    },
+    {
+      "text": "White House in just moments the current",
+      "start": 5.279,
+      "duration": 5.28
+    },
+    {
+      "text": "US president will debate the former US",
+      "start": 7.52,
+      "duration": 5.64
+    },
+    {
+      "text": "presidents as their party's presumptive",
+      "start": 10.559,
+      "duration": 6.161
+    },
+    {
+      "text": "nominees a first in American history we",
+      "start": 13.16,
+      "duration": 5.119
+    },
+    {
+      "text": "want to welcome our viewers in the",
+      "start": 16.72,
+      "duration": 3.639
+    },
+    {
+      "text": "United States and around the world to",
+      "start": 18.279,
+      "duration": 5.801
+    },
+    {
+      "text": "our studios in Atlanta this is the CNN",
+      "start": 20.359,
+      "duration": 4.961
+    },
+    {
+      "text": "presidential",
+      "start": 24.08,
+      "duration": 4.119
+    },
+    {
+      "text": "debate this debate is being produced by",
+      "start": 25.32,
+      "duration": 5.16
+    },
+    {
+      "text": "CNN and is coming to you live live on",
+      "start": 28.199,
+      "duration": 6.88
+    },
+    {
+      "text": "CNN CNN International CNN.com CNN Max",
+      "start": 30.48,
+      "duration": 8.48
+    },
+    {
+      "text": "and CNN espanol this is a pivotal moment",
+      "start": 35.079,
+      "duration": 5.96
+    },
+    {
+      "text": "between President Joe Biden and former",
+      "start": 38.96,
+      "duration": 4.2
+    },
+    {
+      "text": "president Donald Trump in their rematch",
+      "start": 41.039,
+      "duration": 4.721
+    },
+    {
+      "text": "for the nation's highest office each",
+      "start": 43.16,
+      "duration": 4.36
+    },
+    {
+      "text": "will make his case to the American",
+      "start": 45.76,
+      "duration": 4.279
+    },
+    {
+      "text": "people with just over four months until",
+      "start": 47.52,
+      "duration": 5.76
+    },
+    {
+      "text": "election day good evening I'm Dana Bash",
+      "start": 50.039,
+      "duration": 5.52
+    },
+    {
+      "text": "anchor of CNN's inside politics and",
+      "start": 53.28,
+      "duration": 4.48
+    },
+    {
+      "text": "co-anchor of State of the Union I'm Jake",
+      "start": 55.559,
+      "duration": 4.441
+    },
+    {
+      "text": "Tapper anchor of CNN's the lead and",
+      "start": 57.76,
+      "duration": 4.279
+    },
+    {
+      "text": "co-anchor of State of the Union Dana and",
+      "start": 60.0,
+      "duration": 4.439
+    },
+    {
+      "text": "I will co-moderate this evening our job",
+      "start": 62.039,
+      "duration": 5.561
+    },
+    {
+      "text": "is to facilitate a debate between the",
+      "start": 64.439,
+      "duration": 5.241
+    },
+    {
+      "text": "two candidates tonight before we",
+      "start": 67.6,
+      "duration": 3.44
+    },
+    {
+      "text": "introduce them we want to share the",
+      "start": 69.68,
+      "duration": 3.24
+    },
+    {
+      "text": "rules of the debate with the audience at",
+      "start": 71.04,
+      "duration": 3.96
+    },
+    {
+      "text": "home former president Trump will be on",
+      "start": 72.92,
+      "duration": 4.08
+    },
+    {
+      "text": "the left side of the screen President",
+      "start": 75.0,
+      "duration": 4.0
+    },
+    {
+      "text": "Biden will be appearing on the right a",
+      "start": 77.0,
+      "duration": 4.96
+    },
+    {
+      "text": "coin toss determined their positions",
+      "start": 79.0,
+      "duration": 4.84
+    },
+    {
+      "text": "each candidate will have two minutes to",
+      "start": 81.96,
+      "duration": 4.36
+    },
+    {
+      "text": "answer a question and one minute each",
+      "start": 83.84,
+      "duration": 5.48
+    },
+    {
+      "text": "for responses and rebuttal an additional",
+      "start": 86.32,
+      "duration": 5.119
+    },
+    {
+      "text": "minute for follow-up clarification or",
+      "start": 89.32,
+      "duration": 4.72
+    },
+    {
+      "text": "response is at the moderator's",
+      "start": 91.439,
+      "duration": 4.601
+    },
+    {
+      "text": "discretion when it's time for a",
+      "start": 94.04,
+      "duration": 4.24
+    },
+    {
+      "text": "candidate to speak his microphone will",
+      "start": 96.04,
+      "duration": 4.32
+    },
+    {
+      "text": "be turned on and his opponent's",
+      "start": 98.28,
+      "duration": 4.64
+    },
+    {
+      "text": "microphone will be turned off should a",
+      "start": 100.36,
+      "duration": 4.56
+    },
+    {
+      "text": "candidate interrupt when his microphone",
+      "start": 102.92,
+      "duration": 4.479
+    },
+    {
+      "text": "is muted he will be difficult to",
+      "start": 104.92,
+      "duration": 4.96
+    },
+    {
+      "text": "understand for viewers at home at the",
+      "start": 107.399,
+      "duration": 4.241
+    },
+    {
+      "text": "end of the debate each candidate will",
+      "start": 109.88,
+      "duration": 4.32
+    },
+    {
+      "text": "get two minutes for closing statements",
+      "start": 111.64,
+      "duration": 4.92
+    },
+    {
+      "text": "there is no studio audience tonight",
+      "start": 114.2,
+      "duration": 5.16
+    },
+    {
+      "text": "pre-written notes props or contact with",
+      "start": 116.56,
+      "duration": 4.76
+    },
+    {
+      "text": "campaign staff are not permitted during",
+      "start": 119.36,
+      "duration": 4.6
+    },
+    {
+      "text": "the debate by accepting our invitation",
+      "start": 121.32,
+      "duration": 4.6
+    },
+    {
+      "text": "to debate both candidates and their",
+      "start": 123.96,
+      "duration": 5.76
+    },
+    {
+      "text": "campaigns agreed to accept these rules",
+      "start": 125.92,
+      "duration": 6.56
+    },
+    {
+      "text": "now please welcome the 46th president of",
+      "start": 129.72,
+      "duration": 5.879
+    },
+    {
+      "text": "the United States Joe",
+      "start": 132.48,
+      "duration": 3.119
+    },
+    {
+      "text": "Biden great to be here thank",
+      "start": 141.84,
+      "duration": 6.52
+    },
+    {
+      "text": "you and please welcome the 45th",
+      "start": 145.64,
+      "duration": 7.0
+    },
+    {
+      "text": "president of the United States Donald",
+      "start": 148.36,
+      "duration": 4.28
+    },
+    {
+      "text": "[Music]",
+      "start": 153.01,
+      "duration": 3.43
+    },
+    {
+      "text": "Trump gentlemen thanks so much for being",
+      "start": 161.28,
+      "duration": 3.92
+    },
+    {
+      "text": "here let's begin the debate and let's",
+      "start": 163.64,
+      "duration": 3.04
+    },
+    {
+      "text": "start with the issue that voters",
+      "start": 165.2,
+      "duration": 4.72
+    },
+    {
+      "text": "consistently say is their top concern",
+      "start": 166.68,
+      "duration": 6.08
+    },
+    {
+      "text": "the economy President Biden inflation",
+      "start": 169.92,
+      "duration": 6.039
+    },
+    {
+      "text": "has slowed but prices remain high since",
+      "start": 172.76,
+      "duration": 5.16
+    },
+    {
+      "text": "you took office the price of Essentials",
+      "start": 175.959,
+      "duration": 4.441
+    },
+    {
+      "text": "has increased for example basket of",
+      "start": 177.92,
+      "duration": 5.72
+    },
+    {
+      "text": "groceries that cost $100 then now costs",
+      "start": 180.4,
+      "duration": 4.24
+    },
+    {
+      "text": "more than",
+      "start": 183.64,
+      "duration": 3.8
+    },
+    {
+      "text": "$120 and typical home prices have jumped",
+      "start": 184.64,
+      "duration": 5.44
+    },
+    {
+      "text": "more than 30% what do you say to voters",
+      "start": 187.44,
+      "duration": 4.879
+    },
+    {
+      "text": "who feel they are worse off under your",
+      "start": 190.08,
+      "duration": 3.76
+    },
+    {
+      "text": "presidency than they were under",
+      "start": 192.319,
+      "duration": 3.48
+    },
+    {
+      "text": "President Trump we got to take a look at",
+      "start": 193.84,
+      "duration": 4.2
+    },
+    {
+      "text": "what I was left when I became president",
+      "start": 195.799,
+      "duration": 4.921
+    },
+    {
+      "text": "what Mr Trump left me we had an economy",
+      "start": 198.04,
+      "duration": 5.08
+    },
+    {
+      "text": "that was in freefall the pandemic was so",
+      "start": 200.72,
+      "duration": 5.0
+    },
+    {
+      "text": "badly handled many people were dying all",
+      "start": 203.12,
+      "duration": 4.6
+    },
+    {
+      "text": "he said was it's not that serious just",
+      "start": 205.72,
+      "duration": 3.68
+    },
+    {
+      "text": "inject a little bleach into your arm",
+      "start": 207.72,
+      "duration": 3.48
+    },
+    {
+      "text": "you'll be all right the economy",
+      "start": 209.4,
+      "duration": 4.039
+    },
+    {
+      "text": "collapsed there were no jobs",
+      "start": 211.2,
+      "duration": 5.08
+    },
+    {
+      "text": "unemployment rate Rose to 15% it was",
+      "start": 213.439,
+      "duration": 4.921
+    },
+    {
+      "text": "terrible and so what we had to do is try",
+      "start": 216.28,
+      "duration": 4.2
+    },
+    {
+      "text": "to put things back together again that's",
+      "start": 218.36,
+      "duration": 4.439
+    },
+    {
+      "text": "exactly what we began to do we created",
+      "start": 220.48,
+      "duration": 6.0
+    },
+    {
+      "text": "15,000 new jobs we brought out position",
+      "start": 222.799,
+      "duration": 6.08
+    },
+    {
+      "text": "where we have 800,000 new manufacturing",
+      "start": 226.48,
+      "duration": 4.64
+    },
+    {
+      "text": "jobs but there's more to be done there's",
+      "start": 228.879,
+      "duration": 3.961
+    },
+    {
+      "text": "more to be done workingclass people are",
+      "start": 231.12,
+      "duration": 3.839
+    },
+    {
+      "text": "still in trouble I come from Scranton",
+      "start": 232.84,
+      "duration": 4.2
+    },
+    {
+      "text": "Pennsylvania I come of household where",
+      "start": 234.959,
+      "duration": 3.84
+    },
+    {
+      "text": "the kitchen table if the things weren't",
+      "start": 237.04,
+      "duration": 3.52
+    },
+    {
+      "text": "able to be met during the mon was a a",
+      "start": 238.799,
+      "duration": 3.881
+    },
+    {
+      "text": "problem price of eggs the price of gas",
+      "start": 240.56,
+      "duration": 3.759
+    },
+    {
+      "text": "the price of housing the price of a",
+      "start": 242.68,
+      "duration": 3.199
+    },
+    {
+      "text": "whole range of things that's why I'm",
+      "start": 244.319,
+      "duration": 3.92
+    },
+    {
+      "text": "working so hard to make sure I deal with",
+      "start": 245.879,
+      "duration": 4.0
+    },
+    {
+      "text": "those problems and we're going to make",
+      "start": 248.239,
+      "duration": 4.0
+    },
+    {
+      "text": "sure that we reduce the price of housing",
+      "start": 249.879,
+      "duration": 4.161
+    }
+  ]
+}
