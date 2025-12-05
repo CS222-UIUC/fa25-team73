@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "My Simple Extension",
+  "version": "1.0",
+  "description": "A basic Chrome extension boilerplate.",
+  
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    },
+    "default_title": "Click to open the popup"
+  },
+  
+  "permissions": [
+    "activeTab"
+  ],
+  
+  "host_permissions": [
+    "http://127.0.0.1:8000/" 
+  ]
+}
