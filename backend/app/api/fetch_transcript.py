@@ -10,7 +10,63 @@ from html import unescape
 
 from app.config import settings
 
+import asyncio
+import tempfile
+from pathlib import Path
+import yt_dlp
+
+from openai import OpenAI
+import os
+
 router = APIRouter()
+
+client = OpenAI(api_key=settings.OPENAI_API_KEY)
+
+def _download_audio_sync(video_id: str) -> str:
+    """Download YouTube audio to a temp file and return its path."""
+    url = f"https://www.youtube.com/watch?v={video_id}"
+    tmpdir = tempfile.mkdtemp(prefix="yt_audio_")
+    outtmpl = str(Path(tmpdir) / "%(id)s.%(ext)s")
+
+    ydl_opts = {
+        "format": "bestaudio/best",
+        "outtmpl": outtmpl,
+        "quiet": True,
+        "noplaylist": True,
+    }
+
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        info = ydl.extract_info(url, download=True)
+        filename = ydl.prepare_filename(info)
+
+    return filename
+
+async def download_audio(video_id: str) -> str:
+    return await asyncio.to_thread(_download_audio_sync, video_id)
+
+async def fetch_transcript_stt(video_id: str):
+    """Fallback: transcribe audio with OpenAI STT."""
+    audio_path = await download_audio(video_id)
+
+    with open(audio_path, "rb") as f:
+        transcription = client.audio.transcriptions.create(
+            model="whisper-1",
+            file=f,
+            response_format="json",
+        )
+
+    text = transcription.text
+
+    # Minimal version: just one big segment
+    return [
+        {
+            "text": text,
+            "start": 0.0,
+            "duration": 0.0,
+        }
+    ]
+
+
 
 
 async def fetch_transcript_youtube_api(video_id: str):
@@ -223,6 +279,17 @@ async def fetch_transcript(video_id: str):
         if transcript:
             method = "direct_xml"
             print(f"Got transcript via direct XML ({len(transcript)} segments)")
+
+    # Method 3: External STT fallback
+    if not transcript:
+        print("Falling back to OpenAI STT...")
+        try:
+            transcript = await fetch_transcript_stt(video_id)
+            if transcript:
+                method = "openai_stt"
+                print(f"Got transcript via OpenAI STT ({len(transcript)} segments)")
+        except Exception as e:
+            print(f"OpenAI STT failed: {e}")
 
     # If both methods failed
     if not transcript:

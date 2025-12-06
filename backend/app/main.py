@@ -40,10 +40,18 @@ app = FastAPI(
 )
 
 # CORS middleware - allow Chrome extension origins
-origins = settings.CORS_ORIGINS.split(",") if "," in settings.CORS_ORIGINS else [settings.CORS_ORIGINS]
+# origins = settings.CORS_ORIGINS.split(",") if "," in settings.CORS_ORIGINS else [settings.CORS_ORIGINS]
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=origins + ["http://localhost:3000", "*"],  # Add localhost for development
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins + ["http://localhost:3000"],  # Add localhost for development
+    allow_origins=["*"],  # Change this from [] to ["*"]
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

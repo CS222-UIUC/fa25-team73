@@ -18,10 +18,17 @@
     "https://youtube.com/*",
     "http://localhost:8000/*"
   ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
   "content_scripts": [
     {
-      "matches": ["https://www.youtube.com/*"],
-      "js": ["src/content.js"],
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "src/content.js"
+      ],
       "run_at": "document_end"
     }
   ],
