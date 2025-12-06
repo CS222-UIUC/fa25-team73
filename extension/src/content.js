@@ -2,37 +2,91 @@
 const API_BASE = 'http://localhost:8000';
 
 // Extract video ID from URL
-function getVideoId() {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get('v');
+// function getVideoId() {
+//   const urlParams = new URLSearchParams(window.location.search);
+//   return urlParams.get('v');
+// }
+function fetchTranscriptFromBackend(videoId) {
+  return new Promise((resolve, reject) => {
+    chrome.runtime.sendMessage(
+      { type: "FETCH_TRANSCRIPT", videoId },
+      (response) => {
+        if (chrome.runtime.lastError) {
+          reject(chrome.runtime.lastError);
+          return;
+        }
+        if (!response) {
+          reject(new Error("No response from background"));
+          return;
+        }
+        if (response.ok) {
+          resolve(response.data);
+        } else {
+          reject(new Error(response.error || "Unknown error from background"));
+        }
+      }
+    );
+  });
 }
 
-// Fetch transcript via backend (uses YouTube Data API v3)
+
+
+function getVideoId() {
+  try {
+    const url = new URL(window.location.href);
+
+    // 1) Standard YouTube watch page: ?v=VIDEO_ID
+    const paramId = url.searchParams.get('v');
+    if (paramId) {
+      console.log('LiveCheck: got video id from ?v=', paramId);
+      return paramId;
+    }
+
+    // 2) Shorts URL: /shorts/VIDEO_ID
+    const shortsMatch = url.pathname.match(/^\/shorts\/([a-zA-Z0-9_-]{11})/);
+    if (shortsMatch) {
+      console.log('LiveCheck: got video id from /shorts/:', shortsMatch[1]);
+      return shortsMatch[1];
+    }
+
+    // 3) youtu.be short links: https://youtu.be/VIDEO_ID
+    if (url.hostname === 'youtu.be') {
+      const pathId = url.pathname.slice(1); // strip leading '/'
+      if (pathId) {
+        console.log('LiveCheck: got video id from youtu.be path:', pathId);
+        return pathId;
+      }
+    }
+
+    console.warn('LiveCheck: could not find video id in URL:', url.href);
+    return null;
+  } catch (e) {
+    console.error('LiveCheck: error parsing URL for video id:', e);
+    return null;
+  }
+}
+
+
+// Fetch transcript via backend (now via background.js)
 async function fetchTranscript(videoId) {
   try {
-    console.log('LiveCheck: Fetching transcript from backend for', videoId);
+    console.log("LiveCheck: Fetching transcript from backend for", videoId);
 
-    // Call backend to get transcript
-    // Backend handles YouTube API complexity
-    const response = await fetch(`${API_BASE}/api/fetch-transcript/${videoId}`);
+    // Ask background to call http://localhost:8000/api/fetch-transcript/:id
+    const data = await fetchTranscriptFromBackend(videoId);
 
-    if (!response.ok) {
-      console.log('LiveCheck: Backend transcript fetch failed:', response.status);
+    if (!data || !data.transcript || data.transcript.length === 0) {
+      console.log("LiveCheck: No transcript returned from backend");
       return null;
     }
 
-    const data = await response.json();
-
-    if (!data.transcript || data.transcript.length === 0) {
-      console.log('LiveCheck: No transcript returned from backend');
-      return null;
-    }
-
-    console.log(`LiveCheck: Success! Got ${data.transcript.length} transcript segments (via ${data.method})`);
+    console.log(
+      `LiveCheck: Success! Got ${data.transcript.length} transcript segments (via ${data.method})`
+    );
     return data.transcript;
 
   } catch (error) {
-    console.error('LiveCheck: Error fetching transcript:', error);
+    console.error("LiveCheck: Error fetching transcript:", error);
     return null;
   }
 }
