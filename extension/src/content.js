@@ -66,7 +66,6 @@ function getVideoId() {
   }
 }
 
-
 // Fetch transcript via backend (now via background.js)
 async function fetchTranscript(videoId) {
   try {
