@@ -1,0 +1,9 @@
+
+a good api for youtube to get the captions or if there is none transcriptions from videos:
+https://pypi.org/project/youtube-transcript-api/
+
+a google api for claim/fact checking, will help with our process:
+https://developers.google.com/fact-check/tools/api/
+
+a possible addition to our boilerplate, a cross-browser extension api:
+https://github.com/williankeller/browser-extension-boilerplate 
