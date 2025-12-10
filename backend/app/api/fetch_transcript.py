@@ -14,6 +14,7 @@ import asyncio
 import tempfile
 from pathlib import Path
 import yt_dlp
+from youtube_transcript_api import YouTubeTranscriptApi, TranscriptsDisabled, NoTranscriptFound
 
 from openai import OpenAI
 import os
@@ -45,29 +46,50 @@ async def download_audio(video_id: str) -> str:
     return await asyncio.to_thread(_download_audio_sync, video_id)
 
 async def fetch_transcript_stt(video_id: str):
-    """Fallback: transcribe audio with OpenAI STT."""
     audio_path = await download_audio(video_id)
 
     with open(audio_path, "rb") as f:
         transcription = client.audio.transcriptions.create(
             model="whisper-1",
             file=f,
-            response_format="json",
+            response_format="verbose_json"
         )
 
-    text = transcription.text
+    transcript = []
+    for seg in transcription.segments:
+        transcript.append({
+            "text": seg.text.strip(),
+            "start": seg.start,
+            "duration": seg.end - seg.start
+        })
 
-    # Minimal version: just one big segment
-    return [
-        {
-            "text": text,
-            "start": 0.0,
-            "duration": 0.0,
-        }
-    ]
-
+    return transcript
 
 
+async def fetch_transcript_yta(video_id: str):
+    from youtube_transcript_api import YouTubeTranscriptApi, TranscriptsDisabled, NoTranscriptFound
+
+    try:
+        transcript_list = YouTubeTranscriptApi.get_transcript(video_id)
+
+        return [
+            {
+                "text": entry["text"],
+                "start": float(entry["start"]),
+                "duration": float(entry.get("duration", 0)),
+            }
+            for entry in transcript_list
+        ]
+
+    except TranscriptsDisabled:
+        print("YouTube transcripts disabled for this video.")
+        return None
+    except NoTranscriptFound:
+        print("No transcripts found for this video.")
+        return None
+    except Exception as e:
+        print(f"youtube-transcript-api error: {e}")
+        return None
 
 async def fetch_transcript_youtube_api(video_id: str):
     """
@@ -272,13 +294,13 @@ async def fetch_transcript(video_id: str):
         except Exception as e:
             print(f"YouTube API failed: {e}")
 
-    # Method 2: Fallback to direct XML scraping
+    # Method 2: Fallback to Youtube-transcript-api
     if not transcript:
-        print("Attempting direct XML fetch...")
-        transcript = await fetch_transcript_direct_xml(video_id)
+        print("Attempting youtube-transcript-api...")
+        transcript = await fetch_transcript_yta(video_id)
         if transcript:
-            method = "direct_xml"
-            print(f"Got transcript via direct XML ({len(transcript)} segments)")
+            method = "youtube_transcript_api"
+            print(f"Got transcript via youtube-transcript-api ({len(transcript)} segments)")
 
     # Method 3: External STT fallback
     if not transcript:

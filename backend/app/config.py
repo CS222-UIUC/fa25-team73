@@ -32,7 +32,7 @@ class Settings(BaseSettings):
     LLM_MODEL: str = "gpt-4o-mini"
     LLM_TEMPERATURE: float = 0.3
     LLM_MAX_TOKENS: int = 1000
-    CLAIM_CONFIDENCE_THRESHOLD: float = 0.7
+    CLAIM_CONFIDENCE_THRESHOLD: float = 0.6
 
     class Config:
         env_file = ".env"
