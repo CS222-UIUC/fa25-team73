@@ -1,6 +1,6 @@
 # LiveCheck - Real-Time Video Fact Checker
 
-Chrome extension that automatically fact-checks YouTube videos by analyzing transcripts and displaying verification overlays at relevant timestamps.
+The LiveCheck system is a Chrome extension designed to fact-check claims in YouTube videos by analyzing transcripts and displaying real-time verification overlays. Its architecture relies on a FastAPI Backend (Python) to manage all processing, communicating with the extension's Content Script and Background Script. The core workflow involves the backend fetching the video transcript, splitting it into 5-minute segments for chunked processing, and sending these segments concurrently to OpenAI GPT-4o-mini for claim detection and verification. Before contacting the LLM, the system performs a Cache Check in the Redis Cache to retrieve verified claims instantly for repeat views. Once claims are processed, they are stored in the cache and returned to the extension, which monitors video playback for Overlay Timing to display the results accurately. This ensures immediate and reliable claim verification, with a focus on progressive results and reduced processing time.
 
 ## Architecture
 
@@ -204,3 +204,9 @@ CLAIM_CONFIDENCE_THRESHOLD=0.7
 ## License
 
 MIT
+
+##Who Did What
+Paige: Worked on the Backend, helped write test cases and created the presentation.
+Ben: Added timestamp functionality to openAI fallback.
+Malcolm: Worked on clean pycache, added gitignore, and transcript API.
+Krish: Added scripts for writing to the extension and getting the UI up also for querying GPT with questions.
