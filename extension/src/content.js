@@ -1,6 +1,41 @@
 // LiveCheck Content Script for YouTube
 const API_BASE = 'http://localhost:8000';
 
+// Toggle for showing/hiding overlays
+let overlaysEnabled = true;
+
+// Load initial value from storage (so setting persists per browser)
+chrome.storage.local.get(['overlaysEnabled'], (result) => {
+  if (typeof result.overlaysEnabled === 'boolean') {
+    overlaysEnabled = result.overlaysEnabled;
+  } else {
+    overlaysEnabled = true;
+    chrome.storage.local.set({ overlaysEnabled: true });
+  }
+  console.log('LiveCheck: overlaysEnabled =', overlaysEnabled);
+});
+
+// Keyboard shortcut: Ctrl + Shift + L to toggle overlays
+document.addEventListener('keydown', (e) => {
+  if (e.metaKey && e.shiftKey && e.key.toLowerCase() === 'l') {
+    overlaysEnabled = !overlaysEnabled;
+    chrome.storage.local.set({ overlaysEnabled });
+
+    console.log(
+      'LiveCheck: overlays toggled',
+      overlaysEnabled ? 'ON' : 'OFF'
+    );
+
+    // If turning OFF, immediately remove any visible overlays
+    if (!overlaysEnabled) {
+      document
+        .querySelectorAll('.livecheck-overlay')
+        .forEach((el) => el.remove());
+    }
+  }
+});
+
+
 // Extract video ID from URL
 // function getVideoId() {
 //   const urlParams = new URLSearchParams(window.location.search);
@@ -155,6 +190,9 @@ function showOverlayAtTime(claim) {
   let shown = false;
 
   const checkTime = () => {
+    // If overlays are disabled, do nothing
+    if (!overlaysEnabled) return;
+    
     if (!shown && video.currentTime >= claim.timestamp &&
         video.currentTime < claim.timestamp + 5) {
       const overlay = createOverlay(claim);
