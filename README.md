@@ -205,7 +205,7 @@ CLAIM_CONFIDENCE_THRESHOLD=0.7
 
 MIT
 
-##Who Did What
+## Who Did What
 Paige: Worked on the Backend, helped write test cases and created the presentation.
 Ben: Added timestamp functionality to openAI fallback.
 Malcolm: Worked on clean pycache, added gitignore, and transcript API.
